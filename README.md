@@ -17,9 +17,9 @@
 
 Xbgboost算法通过学习历史的驾驶数据获得有经验的控制模型，控制列车在120s运行时间要求下的速度曲线如图所示，一般列车的质量为200t，计算得到耗能11.35Kwh。
 
-![xgboost_s-v](.\simulation_output\xgboost_s-v.png)
+![xgboost_s-v](./simulation_output/xgboost_s-v.png)
 
-![xgboost_acc](.\simulation_output\xgboost_acc.png)
+![xgboost_acc](./simulation_output/xgboost_acc.png)
 
 ## 使用说明
 
