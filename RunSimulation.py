@@ -7,7 +7,8 @@ Created on Mon Apr  8 14:20:18 2019
 """
 
 import sys
-sys.path.append('..\subway_system')
+sys.path.append('./subway_system')
+sys.path.append('./ato_agent')
 import TrainAndRoadCharacter as trc
 import atoController
 import matplotlib.pyplot as plt
@@ -17,7 +18,7 @@ import numpy as np
 
     
 def Run(style):
-    #style:   控制器类型  "svm":SVM  "sw":switchPoint "c":Coast
+    #style:   控制器类型  "expert":专家系统  "sw":switchPoint "c":Coast
     #仿真参数
     startPoint=trc.SLStartPoint[0]
     endPoint=trc.SLStartPoint[-1]
@@ -41,7 +42,7 @@ def Run(style):
     vbar=0           #目标速度
     #控制器设置
     if style=='PID':
-        controller=atoController.PIDATO(startPoint,endPoint,98,dt,'./targetCurveDataSet/115.0_Curve.csv') #PID
+        controller=atoController.PIDATO(startPoint,endPoint,98,dt,'./pid/targetCurveDataSet/115.0_Curve.csv') #PID
         controller.SetParameters(3,0.3,1)
     elif style=='xgboost':
         controller=atoController.XgbATO(startPoint,endPoint,115,dt) #专家系统
@@ -82,14 +83,13 @@ def Run(style):
 
 stl='xgboost'
 #stl='PID'
+#stl='expert'
 var,res=Run(stl)
 print('Simulation End')
-res.to_csv(stl+'result.csv')
+res.to_csv('./simulation_output/' + stl+'result.csv')
 trc.plotSpeedLimitRoadGrad('relative')
 plt.plot(res['s'],res['vbar'])  #画vbar-x 
 plt.plot(res['s'],res['v'])  #画v-x 
 plt.show()
 plt.plot(res['s'],res['acc'])  #画acc
-plt.show()
-plt.plot(res['s'],res['vbar'])  #画vbar-x 
 plt.show()
