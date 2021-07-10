@@ -10,7 +10,8 @@ Created on Mon Apr  8 11:09:33 2019
 
 import numpy as np 
 import sys
-sys.path.append('..\subway_system')
+sys.path.append('../subway_system')
+sys.path.append('../ato_agent')
 import TrainAndRoadCharacter as trc
 import trainRunningModel as trm
 import pandas as pds

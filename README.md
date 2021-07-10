@@ -13,9 +13,7 @@
 
 在智能agent中，可以选择多种控制算法生成控制指令序列，如PID算法、专家系统、xgboost算法和强化学习。
 
-
-
-Xbgboost算法通过学习历史的驾驶数据获得有经验的控制模型，控制列车在120s运行时间要求下的速度曲线如图所示，一般列车的质量为200t，计算得到耗能11.35Kwh。
+Xgboost算法是一种集成分类树算法。Xbgboost算法通过学习历史的驾驶数据获得有经验的控制模型，控制列车在120s运行时间要求下的速度曲线如图所示，一般列车的质量为200t，计算得到耗能11.35Kwh。
 
 ![xgboost_s-v](./simulation_output/xgboost_s-v.png)
 
@@ -36,6 +34,14 @@ TrainAndRoadCharacter.py提供线路的相关信息，如线路起点和终点�
 trainRunningModel.py提供的列车动力学模型，如最大牵引力限制和最大制动力限制。
 
 matlab_plot 中包含matlab读取实验数据并且绘图的代码。
+
+在xgboost_algorithm文件夹下保存的是Xgboost算法的训练数据、训练算法和训练得到模型。所以运行基于xgboost算法的ATO时会加载该文件夹下的模型。
+
+注意：由于运行不同的文件时Python工作区间不同，而且读取数据文件时采用相对路径。偶尔会存在FileNotFoundError报错，需要根据运行python文件的位置调整数据文件路径。
+
+
+
+
 
 
 
