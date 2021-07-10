@@ -35,6 +35,8 @@ TrainAndRoadCharacter.py提供线路的相关信息，如线路起点和终点�
 
 trainRunningModel.py提供的列车动力学模型，如最大牵引力限制和最大制动力限制。
 
+matlab_plot 中包含matlab读取实验数据并且绘图的代码。
+
 
 
 ## 环境配置
